@@ -40,4 +40,6 @@
 - Logger: Log4J2
 - Tests: JUnit 4
 
+
+***
 ### CREATED BY MAXIM SYROMOLOTOV 2021 
