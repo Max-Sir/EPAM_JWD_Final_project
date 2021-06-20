@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <display-name>Library</display-name>
+
+    <welcome-file-list>
+        <welcome-file>/jsp/index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+        <location>/jsp/error.jsp</location>
+    </error-page>
+
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+
+    <filter-mapping>
+        <filter-name>UserAutoLogInByTokenFilter</filter-name>
+        <url-pattern>/controller</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>UserBanFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>UserRolePermittedCommandFilter</filter-name>
+        <url-pattern>/controller</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>UserRolePermittedPageFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>LocalizationFilter</filter-name>
+        <url-pattern>/controller</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+    <jsp-config>
+        <taglib>
+            <taglib-uri>customtags</taglib-uri>
+            <taglib-location>/tld/copyright.tld</taglib-location>
+        </taglib>
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <include-prelude>/jsp/include/metaInfoAndHeader.jsp</include-prelude>
+            <include-coda>/jsp/include/footer.jsp</include-coda>
+        </jsp-property-group>
+    </jsp-config>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Library</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+</web-app>

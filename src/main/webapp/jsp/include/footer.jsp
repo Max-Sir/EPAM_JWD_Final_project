@@ -1,0 +1,9 @@
+        <footer>
+            <ul>
+                <li>
+                    <crt:copyright/>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
