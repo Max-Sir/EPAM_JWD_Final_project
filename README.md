@@ -33,7 +33,7 @@
 - Maven
 - Git
 - JavaEE: Servlet, JSP, JSTL, JavaMail
-- Server / Servlet container: Tomcat 9
+- Server / Servlet container: Tomcat 10
 - HTTPS by SSL certificate
 - Database: MySQL
 - JDBC
